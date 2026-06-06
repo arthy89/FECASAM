@@ -6,6 +6,12 @@
 # Habilitar Rewrite Engine
 RewriteEngine On
 
+# Forzar index.html como página principal
+DirectoryIndex index.html index.php
+
+# No mostrar listado de archivos
+Options -Indexes
+
 # ============================================
 # SECURITY HEADERS
 # ============================================
@@ -29,8 +35,8 @@ Header always set Content-Security-Policy "default-src 'self' https:; script-src
 # FORCE HTTPS (Descomentar en producción)
 # ============================================
 
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
 # ============================================
 # WWW REDIRECT
@@ -158,7 +164,7 @@ ErrorDocument 500 /500.html
 # ============================================
 
 # Proteger archivos sensibles
-<FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
+<FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|log|psd|sh|sql|sw[op])|~)$">
     Order allow,deny
     Deny from all
     Satisfy All
@@ -186,7 +192,7 @@ Options -Indexes
 # PHP SETTINGS (si usas PHP)
 # ============================================
 
-<IfModule mod_php7.c>
+<IfModule mod_php8.c>
     php_value upload_max_filesize 64M
     php_value post_max_size 64M
     php_value max_execution_time 300
@@ -198,9 +204,20 @@ Options -Indexes
 # PREVENT ACCESS TO HIDDEN FILES
 # ============================================
 
-<IfModule mod_rewrite.c>
-    RewriteRule "(^|/)\." - [F]
-</IfModule>
+# <IfModule mod_rewrite.c>
+#     RewriteRule "(^|/)\." - [F]
+# </IfModule>
+
+# Proteger archivos ocultos sensibles
+<FilesMatch "^\.env">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "^\.git">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
 
 # ============================================
 # CORS (si necesitas permitir requests desde otros dominios)
