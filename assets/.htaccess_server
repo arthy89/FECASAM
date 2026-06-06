@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/FECASAM
+RewriteRule ^(.*)$ /FECASAM/$1 [L,QSA]
