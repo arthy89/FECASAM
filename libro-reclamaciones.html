@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro de Reclamaciones | FECASAM 2026</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header scrolled">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="index.html" class="logo">
+                        <span class="logo-text">FECASAM <span class="year">2026</span></span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="section" style="margin-top: 80px;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Libro de Reclamaciones Virtual</span>
+                <h1 class="section-title">Hoja de Reclamación</h1>
+                <p class="section-description">
+                    Conforme a lo establecido en el Código de Protección y Defensa del Consumidor (Ley N° 29571)
+                </p>
+            </div>
+
+            <div class="registration-wrapper">
+                <form class="registration-form" id="complaintForm">
+                    <!-- Información del Consumidor -->
+                    <h3 style="color: var(--color-primary); margin-bottom: 1.5rem;">
+                        <i class="fas fa-user"></i> Información del Consumidor
+                    </h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="consumerName">
+                                <i class="fas fa-user"></i> Nombre Completo *
+                            </label>
+                            <input type="text" id="consumerName" name="consumerName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="consumerDocument">
+                                <i class="fas fa-id-card"></i> DNI/CE *
+                            </label>
+                            <input type="text" id="consumerDocument" name="consumerDocument" required maxlength="12">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="consumerEmail">
+                                <i class="fas fa-envelope"></i> Correo Electrónico *
+                            </label>
+                            <input type="email" id="consumerEmail" name="consumerEmail" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="consumerPhone">
+                                <i class="fas fa-phone"></i> Teléfono *
+                            </label>
+                            <input type="tel" id="consumerPhone" name="consumerPhone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="consumerAddress">
+                            <i class="fas fa-map-marker-alt"></i> Dirección *
+                        </label>
+                        <input type="text" id="consumerAddress" name="consumerAddress" required>
+                    </div>
+
+                    <!-- Información del Bien/Servicio -->
+                    <h3 style="color: var(--color-primary); margin: 2rem 0 1.5rem;">
+                        <i class="fas fa-box"></i> Identificación del Bien o Servicio
+                    </h3>
+
+                    <div class="form-group">
+                        <label for="productType">
+                            <i class="fas fa-tag"></i> Tipo *
+                        </label>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <label class="checkbox-label">
+                                <input type="radio" name="productType" value="producto" required>
+                                <span>Producto</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="radio" name="productType" value="servicio" required>
+                                <span>Servicio</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="productDescription">
+                                <i class="fas fa-align-left"></i> Descripción *
+                            </label>
+                            <input type="text" id="productDescription" name="productDescription" required placeholder="Ej: Inscripción a FECASAM 2026">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="amount">
+                                <i class="fas fa-money-bill"></i> Monto (S/) *
+                            </label>
+                            <input type="number" id="amount" name="amount" step="0.01" required placeholder="0.00">
+                        </div>
+                    </div>
+
+                    <!-- Tipo de Reclamo -->
+                    <h3 style="color: var(--color-primary); margin: 2rem 0 1.5rem;">
+                        <i class="fas fa-exclamation-circle"></i> Tipo de Reclamo
+                    </h3>
+
+                    <div class="form-group">
+                        <label for="claimType">
+                            <i class="fas fa-list"></i> Seleccione *
+                        </label>
+                        <div style="display: grid; gap: 1rem;">
+                            <label class="checkbox-label">
+                                <input type="radio" name="claimType" value="reclamo" required>
+                                <span><strong>Reclamo:</strong> Disconformidad relacionada a los productos o servicios</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="radio" name="claimType" value="queja" required>
+                                <span><strong>Queja:</strong> Disconformidad no relacionada a los productos o servicios, o malestar por atención al público</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Detalle del Reclamo -->
+                    <div class="form-group">
+                        <label for="claimDetail">
+                            <i class="fas fa-comment-alt"></i> Detalle del Reclamo/Queja *
+                        </label>
+                        <textarea id="claimDetail" name="claimDetail" rows="6" required placeholder="Describa detalladamente su reclamo o queja..."></textarea>
+                    </div>
+
+                    <!-- Pedido del Consumidor -->
+                    <div class="form-group">
+                        <label for="consumerRequest">
+                            <i class="fas fa-bullhorn"></i> Pedido del Consumidor *
+                        </label>
+                        <textarea id="consumerRequest" name="consumerRequest" rows="4" required placeholder="Indique qué solución espera..."></textarea>
+                    </div>
+
+                    <!-- Términos -->
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="complaintTerms" required>
+                            <span>Declaro que la información proporcionada es veraz y autorizo su tratamiento conforme a la Ley N° 29733. El proveedor responderá en un plazo no mayor a 30 días calendario.</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <i class="fas fa-paper-plane"></i> Enviar Reclamo
+                    </button>
+                </form>
+
+                <div class="registration-success" id="complaintSuccess" style="display: none;">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>¡Reclamo Registrado!</h3>
+                    <p>Su reclamo ha sido registrado exitosamente en nuestro Libro de Reclamaciones Virtual.</p>
+                    <p class="registration-code">Código de seguimiento: <strong id="complaintCode"></strong></p>
+                    <p style="color: #666; font-size: 0.9rem;">
+                        Recibirá una copia de su reclamo en su correo electrónico.<br>
+                        El plazo máximo de respuesta es de 30 días calendario.
+                    </p>
+                    <a href="index.html" class="btn btn-secondary">
+                        <i class="fas fa-home"></i> Volver al Inicio
+                    </a>
+                </div>
+            </div>
+
+            <!-- Información Legal -->
+            <div style="max-width: 800px; margin: 3rem auto; padding: 2rem; background: #f5f5f5; border-radius: 12px;">
+                <h4 style="color: var(--color-primary); margin-bottom: 1rem;">
+                    <i class="fas fa-info-circle"></i> Información Legal
+                </h4>
+                <ul style="color: #666; line-height: 1.8;">
+                    <li>La formulación del reclamo no impide acudir a otras vías de solución de controversias ni es requisito previo para interponer una denuncia ante INDECOPI.</li>
+                    <li>El proveedor deberá dar respuesta al reclamo en un plazo no mayor a treinta (30) días calendario.</li>
+                    <li>Se remitirá una copia del presente reclamo a la autoridad de consumo competente.</li>
+                    <li>Puede consultar el estado de su reclamo con el código proporcionado.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 FECASAM - Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Complaint form handling
+        document.getElementById('complaintForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const submitBtn = e.target.querySelector('.btn-submit');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Send to API
+                const response = await fetch('api/submit-complaint.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success && data.data) {
+                    // Show success
+                    document.getElementById('complaintForm').style.display = 'none';
+                    document.getElementById('complaintSuccess').style.display = 'block';
+                    document.getElementById('complaintCode').textContent = data.data.code;
+                    
+                    // Scroll to success message
+                    document.getElementById('complaintSuccess').scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center' 
+                    });
+                } else {
+                    throw new Error(data.message || data.error || 'Error desconocido');
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al enviar el reclamo: ' + error.message + '. Por favor, inténtelo nuevamente.');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+# robots.txt for FECASAM 2026
+
+# Allow all search engines to index the site
+User-agent: *
+Allow: /
+
+# Disallow admin and API endpoints
+Disallow: /api/
+Disallow: /database/
+Disallow: /docs/
+Disallow: /test/
+Disallow: /*.sql$
+Disallow: /*.log$
+Disallow: /404.html
+Disallow: /403.html
+Disallow: /500.html
+
+# Crawl delay (optional, use only if needed)
+# Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://fecasam2026.com/sitemap.xml
+
+# Specific bot instructions (optional)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block bad bots (optional)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /

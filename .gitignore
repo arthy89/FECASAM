@@ -1,0 +1,104 @@
+# === ARCHIVOS DE SEGURIDAD ===
+.env
+*.key
+*.pem
+config.php
+secrets.php
+
+# === BASE DE DATOS ===
+*.sql
+*.sqlite
+*.db
+
+# === LOGS ===
+*.log
+logs/
+error_log
+
+# === TEMPORALES ===
+*.tmp
+*.temp
+tmp/
+temp/
+
+# === SISTEMA OPERATIVO ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === EDITORES ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === DEPENDENCIAS ===
+node_modules/
+vendor/
+*.lock
+
+# === BACKUPS ===
+*.bak
+*.backup
+backup/
+backups/
+
+# === PYTHON ===
+__pycache__/
+*.py[cod]
+*.pyc
+.Python
+venv/
+.venv/
+ENV/
+env/
+
+# === ARCHIVOS DE DESARROLLO (NO PRODUCCIÓN) ===
+# Documentación de desarrollo
+ANALISIS-DETALLADO.md
+ESTRUCTURA-PROYECTO.md
+GUIA-PRUEBAS.md
+INICIO-RAPIDO.md
+PERSONALIZACION.md
+project-context.md
+RECURSOS-NECESARIOS.md
+ACTUALIZACION-RECURSOS.md
+LIBRO-RECLAMACIONES-CONFIG.md
+RESUMEN-REVISION.md
+REVISION-PROYECTO.md
+
+# Archivos de prueba
+test-*.html
+*-test.html
+test-*.js
+
+# Scripts Python auxiliares
+crear_*.py
+remove_bg.py
+
+# READMEs internos
+assets/downloads/README.md
+assets/downloads/COMO-CONVERTIR-A-PDF.md
+assets/downloads/*.html
+assets/images/README.md
+assets/videos/README.md
+assets/videos/*.md
+docs/RESUMEN*.pdf
+
+# === ARCHIVOS ORIGINALES SIN PROCESAR ===
+imgs/
+logo.jpeg
+assets/images/logo-original.png
+
+# === VIDEOS GRANDES ===
+*.mp4
+*.MP4
+*.mov
+*.avi
+*.MOV
+*.AVI
+
+# === CACHE ===
+.cache/
+*.cache
