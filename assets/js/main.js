@@ -40,6 +40,7 @@ const DOM = {
     modalContainer: null,
     modalClose: null,
     modalBody: null,
+    modalContent: null,
     // heroVideo: null, // Replaced by carousel
 };
 
@@ -55,6 +56,7 @@ function initDOMElements() {
     DOM.modalContainer = document.getElementById('modalContainer');
     DOM.modalClose = document.getElementById('modalClose');
     DOM.modalBody = document.getElementById('modalBody');
+    DOM.modalContent = document.querySelector('.modal-content');
     // DOM.heroVideo = document.querySelector('.hero-video'); // Replaced by carousel
 }
 
@@ -657,7 +659,12 @@ function closeModal() {
     if (!DOM.modalContainer) return;
     
     DOM.modalContainer.classList.remove('active');
+    DOM.modalContainer.classList.remove('hero-image-modal-open');
     document.body.style.overflow = '';
+
+    if (DOM.modalContent) {
+        DOM.modalContent.classList.remove('hero-image-modal-content');
+    }
 }
 
 /**
@@ -742,6 +749,27 @@ function initModals() {
     // Close modal on button click
     if (DOM.modalClose) {
         DOM.modalClose.addEventListener('click', closeModal);
+    }
+
+    const heroImageTrigger = document.querySelector('.hero-image-trigger');
+    if (heroImageTrigger) {
+        heroImageTrigger.addEventListener('click', () => {
+            const img = heroImageTrigger.querySelector('img');
+            if (!img) return;
+
+            const imageModal = `
+                <div class="hero-image-modal">
+                    <img src="${img.getAttribute('src')}" alt="${img.getAttribute('alt') || 'Imagen ampliada'}">
+                </div>
+            `;
+
+            DOM.modalContainer.classList.add('hero-image-modal-open');
+            DOM.modalContent = DOM.modalContent || document.querySelector('.modal-content');
+            if (DOM.modalContent) {
+                DOM.modalContent.classList.add('hero-image-modal-content');
+            }
+            openModal(imageModal);
+        });
     }
     
     // Close modal on overlay click
