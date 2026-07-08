@@ -822,7 +822,9 @@ a:focus-visible {
 
 @media (max-width: 768px) {
     .hero {
+        height: auto;
         min-height: auto;
+        overflow: visible;
         padding-top: calc(5.5rem + 1rem);
         padding-bottom: 4rem;
     }
@@ -1545,7 +1547,7 @@ a:focus-visible {
     font-weight: 600;
     color: var(--color-dark);
     margin-bottom: clamp(0.5rem, 1.5vw, 0.75rem);
-    font-size: clamp(1.5rem, 3vw, 1.5rem);
+    font-size: clamp(1.2rem, 2.7vw, 1.8rem);
 }
 
 .form-group label i {
