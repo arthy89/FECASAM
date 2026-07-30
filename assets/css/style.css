@@ -1382,17 +1382,24 @@ a:focus-visible {
    ============================================ */
 .resources-grid {
     display: grid;
-    grid-template-columns: minmax(260px, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: 1fr;
     gap: clamp(1rem, 2vw, 1.5rem);
     align-items: start;
 }
 
-.resources-grid > .resource-card {
+.resources-grid > .resource-card,
+.resources-grid > .resource-preview {
     grid-column: 1;
 }
 
 .resources-grid > .resource-preview {
-    grid-column: 2 / span 2;
+    justify-self: center;
+    max-width: 1200px;
+}
+
+.resources-grid > .resource-card {
+    justify-self: center;
+    max-width: 480px;
 }
 
 @media (max-width: 900px) {
@@ -1405,7 +1412,8 @@ a:focus-visible {
     }
 
     .resources-grid > .resource-preview {
-        grid-column: 2;
+        grid-column: 1 / -1;
+        justify-self: center;
     }
 }
 
@@ -1512,8 +1520,8 @@ a:focus-visible {
 
 .resource-preview {
     width: 100%;
-    min-height: clamp(280px, 38vw, 420px);
-    height: clamp(280px, 38vw, 420px);
+    min-height: clamp(420px, 46vw, 680px);
+    height: clamp(420px, 46vw, 680px);
     border-radius: var(--radius-md);
     border: 1px solid rgba(107, 68, 35, 0.16);
     background: var(--color-white);
